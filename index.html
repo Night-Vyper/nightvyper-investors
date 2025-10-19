@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Night Vyper — Investor Overview</title>
+  <meta name="description" content="Night Vyper is an AI-powered predator detection & alerting system for farms and ranches. Investor overview: problem, solution, traction, roadmap, and contact." />
+  <meta property="og:title" content="Night Vyper — Investor Overview" />
+  <meta property="og:description" content="AI-powered predator detection & alerting for agriculture. See problem, solution, traction, roadmap, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="theme-color" content="#0b0f12" />
+  <!-- Distinct brand typefaces -->
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Saira+Stencil+One&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="icon" href="./logo.png" />
+  <style>
+    :root {
+      /* Night Vyper • palette from provided logo */
+      --bg: #0b0f12;           /* night black */
+      --panel: #10151b;        /* deep slate */
+      --muted: #8f8573;        /* warm stone */
+      --text: #ede9e3;         /* moon ivory */
+      --ink: #e7e2db;          /* slightly brighter ivory for headings */
+      --brand: #7c2a22;        /* oxblood */
+      --brand-deep: #3e1c19;   /* deep maroon */
+      --clay: #684038;         /* clay brown */
+      --sand: #bdb3a3;         /* sand beige */
+      --ok: #8abf75;           /* muted field green accent */
+      --warn: #c48a3a;         /* harvest amber */
+      --err: #b44b3a;          /* alert red (derived) */
+      --maxw: 1120px;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      font-family: "Atkinson Hyperlegible", ui-sans-serif, system-ui; 
+      color: var(--text); 
+      background: radial-gradient(1200px 1200px at 10% -10%, rgba(124,42,34,0.07), transparent),
+                 radial-gradient(1400px 1000px at 110% 10%, rgba(61,28,25,0.06), transparent),
+                 var(--bg);
+      line-height: 1.65; letter-spacing: .2px;
+    }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: radial-gradient(1200px 1200px at 10% -10%, rgba(163,230,53,0.06), transparent),
+                               radial-gradient(1400px 1000px at 110% 10%, rgba(34,211,238,0.05), transparent),
+                               var(--bg);
+      line-height: 1.6; letter-spacing: .2px;
+    }
+    a { color: var(--sand); text-decoration: none; }
+    a:hover { color: var(--text); text-decoration: underline; }
+    a:hover { text-decoration: underline; }
+    .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    header {
+      position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px);
+      background: linear-gradient(180deg, rgba(11,15,26,0.85), rgba(11,15,26,0.35));
+      border-bottom: 1px solid rgba(148,163,184,.15);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { display: inline-flex; gap: 10px; align-items: center; letter-spacing:.5px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 50%; background: url('./logo.png') center/cover no-repeat; }
+    .nav a { color: var(--text); opacity: .9; margin-left: 18px; font-size: 15px; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding: 10px 16px; border-radius: 999px; border:1px solid var(--clay); background: rgba(16,21,27,.7); color: var(--text); text-decoration:none; box-shadow: var(--shadow); font-weight:600; }
+    .btn:hover { border-color: var(--brand); box-shadow: 0 8px 26px rgba(124,42,34,.25); }
+    .btn.brand { background: linear-gradient(90deg, rgba(124,42,34,.25), rgba(61,28,25,.25)); border-color: var(--brand); }
+    .btn:hover { border-color: rgba(163,230,53,.6); box-shadow: 0 8px 26px rgba(163,230,53,.15); }
+    .btn.brand { background: linear-gradient(90deg, rgba(163,230,53,.15), rgba(34,211,238,.15)); border-color: rgba(163,230,53,.5); }
+
+    .hero { padding: 80px 0 40px; }
+    .hero-wrap { display:grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: center; }
+    .hero h1 { font-family: "Saira Stencil One", system-ui; font-weight: 400; letter-spacing: .5px; font-size: clamp(34px, 4vw, 56px); line-height: 1.1; margin: 0 0 12px; color: var(--ink);}
+    .hero p { font-size: clamp(16px, 1.5vw, 18px); color: var(--muted); max-width: 56ch; }
+    .hero-card { background: linear-gradient(180deg, rgba(15,23,42,.85), rgba(15,23,42,.65)); border:1px solid rgba(148,163,184,.2); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+    .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 22px; }
+    .stat { background: rgba(16,21,27,.7); border:1px solid rgba(104,64,56,.6); border-radius: 12px; padding: 14px; text-align:center; }
+    .stat .num { font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 24px; font-weight: 700; color: var(--text);}
+    .stat .label { font-size: 12px; color: var(--muted); }
+
+    section { padding: 56px 0; }
+    .panel { background: linear-gradient(180deg, rgba(16,21,27,.85), rgba(16,21,27,.6)); border: 1px solid rgba(104,64,56,.5); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+    h2 { font-size: clamp(24px, 3vw, 34px); margin: 0 0 12px; }
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display:grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .pill { display:inline-block; padding: 6px 10px; border:1px solid rgba(148,163,184,.25); border-radius: 999px; font-size: 12px; color: var(--muted); }
+
+    .timeline { position: relative; margin-top: 10px; }
+    .timeline::before { content:""; position:absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: rgba(148,163,184,.25); }
+    .tl { position:relative; padding-left: 44px; margin: 18px 0; }
+    .tl::before { content:""; position:absolute; left: 6px; width: 16px; height:16px; top: 4px; border-radius:50%; background: radial-gradient(circle at 30% 30%, var(--brand), var(--brand-2)); box-shadow:0 0 0 4px rgba(163,230,53,.15); }
+    .tl .date { font-size: 12px; color: var(--muted); }
+
+    footer { padding: 40px 0 60px; color: var(--muted); text-align:center; }
+    .foot-links { display:flex; gap:16px; justify-content:center; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .hero-wrap, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    }
+    .wordmark { font-family: "Saira Stencil One", system-ui; font-size: 18px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--ink); }
+  .pill { display:inline-block; padding: 6px 10px; border:1px solid var(--clay); border-radius: 999px; font-size: 12px; color: var(--sand); }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><span class="logo-mark" aria-hidden="true"></span><span class="wordmark">Night Vyper</span></div>
+      <nav>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#traction">Traction</a>
+        <a href="#model">Business Model</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact" class="btn brand">Investor Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-wrap">
+        <div>
+          <h1>AI Predator Detection & Alerts for Agriculture</h1>
+          <p>Night Vyper monitors farm/ranch perimeters and livestock areas to automatically detect predators (coyotes, bobcats, foxes) and trigger real‑time alerts. Built for reliability at the edge (Jetson) with cloud oversight, starting pilots in Pennsylvania and Oklahoma.</p>
+          <div style="display:flex; gap:12px; margin-top:20px; flex-wrap: wrap;">
+            <a class="btn brand" href="#contact">Talk with the founder</a>
+            <a class="btn" href="./NightVyper_Investor_Deck.pdf" target="_blank" rel="noopener">View Deck (PDF)</a>
+          </div>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="pill">Computer Vision</span>
+            <span class="pill">Edge Inference (Jetson)</span>
+            <span class="pill">YOLOv8 / TensorRT</span>
+            <span class="pill">24/7 Monitoring</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="stats">
+            <div class="stat"><div class="num">2</div><div class="label">Pilot Sites (PA, OK)</div></div>
+            <div class="stat"><div class="num">95%+</div><div class="label">Target Precision (per species)</div></div>
+            <div class="stat"><div class="num"><span title="2026–2028">'26–'28</span></div><div class="label">Growth Horizon</div></div>
+          </div>
+          <div style="margin-top:16px; font-size:14px; color:var(--muted)">
+            *Precision targets derived from current YOLOv8n baseline; models continue to improve via curated datasets and field feedback.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="container grid-2">
+        <div class="panel">
+          <h2>The Problem</h2>
+          <p>Predator losses cost small and mid‑sized farms thousands of dollars annually. Night‑time incursions are hard to monitor, and existing solutions (trail cams, manual patrols) are reactive, labor‑intensive, and miss critical moments.</p>
+          <ul>
+            <li>Livestock predation (e.g., kids/calves) spikes at night and during birthing.</li>
+            <li>Producers lack timely alerts and actionable context to respond.</li>
+            <li>Most camera systems aren’t trained for wildlife identification.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h2>Our Solution</h2>
+          <p>Install rugged cameras + edge AI to run species‑specific detectors. Night Vyper sends instant alerts with annotated snapshots, confidence, and location—so owners can act (lights, sirens, human response).</p>
+          <ul>
+            <li>Edge first (Jetson) with optional cloud dashboard.</li>
+            <li>Species packs: Coyote, Bobcat, Fox; extensible to regional predators.</li>
+            <li>Simple pricing: hardware kit + subscription for monitoring & updates.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="traction">
+      <div class="container panel">
+        <h2>Early Traction & Tech Readiness</h2>
+        <div class="grid-3">
+          <div>
+            <strong>Models</strong>
+            <p>YOLOv8n baseline trained on proprietary curated datasets. Exported to ONNX & TensorRT for Jetson deployment.</p>
+            <p class="pill">Current focus: Coyote</p>
+          </div>
+          <div>
+            <strong>Data Engine</strong>
+            <p>Dataset curation with CVAT + GroundingDINO assisted pre‑labels, continuous improvements via pilot feedback loop.</p>
+          </div>
+          <div>
+            <strong>Pilots</strong>
+            <p>Two initial sites: dairy/goat farm (PA) and exotic bird ranch (OK). Gathering precision/recall, false‑alert metrics, and UX feedback.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="model">
+      <div class="container grid-2">
+        <div class="panel">
+          <h2>Business Model</h2>
+          <ul>
+            <li><strong>Starter Kit (Hardware):</strong> Cameras + Jetson edge unit + mounts & cabling.</li>
+            <li><strong>SaaS Subscription:</strong> Monitoring, model updates, alerting, dashboard, and support.</li>
+            <li><strong>Add‑ons:</strong> Additional camera zones, species packs, and automation relays (lights/sirens).</li>
+          </ul>
+          <p class="pill">Direct to farm/ranch in 2026 → Channel partners 2026 Q3+</p>
+        </div>
+        <div class="panel">
+          <h2>Why Now</h2>
+          <p>Edge AI is finally practical for 24/7 outdoor use. Livestock operations seek automation that pays for itself with a single prevented incident per season.</p>
+          <ul>
+            <li>Affordable edge GPUs (Jetson Orin Nano class).</li>
+            <li>Improved low‑light cameras & IR illumination.</li>
+            <li>Farm Wi‑Fi/PoE infrastructure maturing.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="container panel">
+        <h2>Roadmap (2026–2028)</h2>
+        <div class="timeline">
+          <div class="tl">
+            <div class="date">Q1–Q2 2026</div>
+            <div><strong>Beta → Paid Pilots.</strong> Lock hardware BOM, refine alert UX, publish baseline precision/recall by species.</div>
+          </div>
+          <div class="tl">
+            <div class="date">Q3 2026</div>
+            <div><strong>Certified Installers (On‑Site Setup).</strong> Launch partner program for regional deployment at scale.</div>
+          </div>
+          <div class="tl">
+            <div class="date">Q4 2026</div>
+            <div><strong>SKU 1.0.</strong> Starter Kit + SaaS v1 with fleet management, OTA model updates.</div>
+          </div>
+          <div class="tl">
+            <div class="date">2027</div>
+            <div><strong>Scale & Channels.</strong> Add species packs, automate deterrent triggers, expand to multi‑site ranches.</div>
+          </div>
+          <div class="tl">
+            <div class="date">2028</div>
+            <div><strong>Data Moat.</strong> Region‑aware models, predictive patrols, and yield protection analytics.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container grid-2">
+        <div class="panel">
+          <h2>Team</h2>
+          <p>Founder‑led, full‑stack ML + systems engineering. Advisors in wildlife management and agricultural operations.</p>
+          <ul>
+            <li>Vision Core: model training → ONNX/TensorRT → Jetson deployment.</li>
+            <li>Field Ops: camera placement, IR, weatherproofing, and power.</li>
+            <li>Support: remote diagnostics and model update cadence.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h2>Go‑To‑Market</h2>
+          <ul>
+            <li>Pilots convert to lighthouse customers (case studies, ROI proof).</li>
+            <li>Direct sales (2026) → Certified installers (Q3 2026+).</li>
+            <li>Vertical focus: small/mid farms, ranches, exotics.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container panel">
+        <h2>Investor Contact</h2>
+        <p>Interested in pilots, partnerships, or investment? We’d love to talk.</p>
+        <div class="grid-2">
+          <div>
+            <p><strong>Email:</strong> <a href="mailto:research@nightvyper.com">research@nightvyper.com</a></p>
+            <p><strong>Deck:</strong> <a href="./NightVyper_Investor_Deck.pdf" target="_blank" rel="noopener">NightVyper_Investor_Deck.pdf</a></p>
+            <p><strong>One‑pager:</strong> <a href="./NightVyper_OnePager.pdf" target="_blank" rel="noopener">NightVyper_OnePager.pdf</a></p>
+          </div>
+          <form onsubmit="event.preventDefault(); subscribe();" style="display:grid; gap:10px;">
+            <label for="email" style="font-size:14px; color:var(--muted)">Get investor updates</label>
+            <input id="email" type="email" placeholder="you@fund.com" required style="padding:12px 14px; border-radius:10px; border:1px solid rgba(148,163,184,.3); background:#0b1220; color:var(--text);">
+            <button class="btn brand" type="submit">Subscribe</button>
+            <div id="sub-msg" style="font-size:14px; color:var(--ok);"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-links">
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#model">Business Model</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="margin-top:10px">© <span id="year"></span> Night Vyper. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // smooth scroll for hash links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start'}); }
+      });
+    });
+    // year footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // very simple localStorage stub for demo subscriptions (replace later)
+    function subscribe(){
+      const input = document.getElementById('email');
+      const val = input.value.trim();
+      if(!val) return;
+      const list = JSON.parse(localStorage.getItem('nv-investor-emails')||'[]');
+      if(!list.includes(val)) list.push(val);
+      localStorage.setItem('nv-investor-emails', JSON.stringify(list));
+      document.getElementById('sub-msg').textContent = 'Thanks! We\'ll be in touch.';
+      input.value = '';
+    }
+  </script>
+</body>
+</html>
+
